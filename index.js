@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 const cat_api_url = process.env.API_URL;
 
 // For accessing the documentations file
-const __filename = fileURLToPath(import.meta.url); // Get current file path
-const __dirname = path.dirname(__filename); // Get current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // API fetch function
 const api_fetch_function = async (url) => {
@@ -78,6 +78,7 @@ app.get("/me", async (_, res) => {
     });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server started at port: ${port}`);
