@@ -4,7 +4,7 @@
   "description": "a backend task for hng internship",
   "main": "index.js",
   "scripts": {
-    "dev": "node --trace-warnings index.js"
+    "dev": "node index.js"
   },
   "author": "daniel (u22099)",
   "license": "ISC",
