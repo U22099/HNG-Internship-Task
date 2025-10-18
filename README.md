@@ -203,8 +203,7 @@ This project is licensed under the ISC License. See the `package.json` file for 
 **Daniel (u22099)**
 
 Connect with me:
-*   LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/yourusername) (placeholder)
-*   Twitter: [@YourTwitterHandle](https://twitter.com/YourTwitterHandle) (placeholder)
+*   Twitter: [@dan_22099](https://twitter.com/dan_22099) (placeholder)
 
 ## Badges
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green?logo=node.js&logoColor=white)](https://nodejs.org/)
