@@ -1,0 +1,16 @@
+{
+  "name": "hng-internship-task",
+  "version": "1.0.0",
+  "description": "a backend task for hng internship",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --trace-warnings index.js"
+  },
+  "author": "daniel (u22099)",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
