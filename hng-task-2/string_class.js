@@ -14,7 +14,9 @@ class StringStore {
       value: str_value,
       properties: {
         length: str_value.length,
-        is_palindrome: str_value.toLowerCase() === str_value.toLowerCase().split("").reverse().join(""),
+        is_palindrome:
+          str_value.toLowerCase() ===
+          str_value.toLowerCase().split("").reverse().join(""),
         word_count: str_value.split(" ").length,
         unique_characters: [...new Set(str_value.split(""))].length,
         sha256_hash: this.hashString(str_value),
@@ -40,7 +42,7 @@ class StringStore {
   }
 
   addString(string_value) {
-    if(typeof string_value !== "string") return "400";
+    if (typeof string_value !== "string") return "400";
     else if (this.getString(string_value)) return "409";
 
     const data = this.getStringProperties(string_value);
@@ -50,18 +52,29 @@ class StringStore {
   getString(str_value) {
     if (!str_value) return null;
 
-    return this.store_array.find((str) => str && str.value === str_value) || null;
+    return (
+      this.store_array.find((str) => str && str.value === str_value) || null
+    );
   }
 
   getFilteredStrings(filter) {
-    if (!filter || !Object.keys(filter).length) return null;
+    if (!filter) return null;
+    else if (!Object.keys(filter).length) {
+      return {
+        data: this.store_array,
+        count: this.store_array.length,
+        filters_applied: {},
+      };
+    }
 
     const filtered_result = this.store_array.filter((str) => {
-      return (filter.is_palindrome !== undefined
-        ? str.properties.is_palindrome === filter.is_palindrome
-        : true) &&
+      return (
+        (filter.is_palindrome !== undefined
+          ? str.properties.is_palindrome === filter.is_palindrome
+          : true) &&
         (filter.min_length !== undefined && filter.max_length !== undefined
-          ? filter.min_length <= str.properties.length && str.properties.length <= filter.max_length
+          ? filter.min_length <= str.properties.length &&
+            str.properties.length <= filter.max_length
           : filter.min_length !== undefined
           ? filter.min_length <= str.properties.length
           : filter.max_length !== undefined
@@ -72,7 +85,8 @@ class StringStore {
           : true) &&
         (filter.contains_character !== undefined
           ? str.properties.character_frequency_map[filter.contains_character]
-          : true);
+          : true)
+      );
     });
 
     return {
