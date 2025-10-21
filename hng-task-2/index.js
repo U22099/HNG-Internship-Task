@@ -19,7 +19,7 @@ const stringStore = new StringStore([]);
 
 // Serve documentation
 app.get("/", (_, res) => {
-  res.sendFile(path.join(__dirname, "Task.md"));
+  res.sendFile(path.join(__dirname, "README.md"));
 });
 
 // 1. Create/Analyze String
