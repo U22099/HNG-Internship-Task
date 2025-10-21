@@ -48,23 +48,6 @@ app.post("/strings", async (req, res) => {
   }
 });
 
-// 2. Get Specific String
-app.get("/strings/:string_value", async (req, res) => {
-  try {
-    const { string_value } = req.params;
-    
-    const stringData = stringStore.getString(string_value);
-    
-    if (!stringData) {
-      return res.status(404).json({ error: "String does not exist in the system" });
-    }
-
-    return res.status(200).json(stringData);
-  } catch (error) {
-    return res.status(500).json({ error: "Internal server error" });
-  }
-});
-
 // 3. Get All Strings with Filtering
 app.get("/strings", async (req, res) => {
   try {
@@ -149,6 +132,23 @@ app.get("/strings/filter-by-natural-language", async (req, res) => {
         parsed_filters: result.filters_applied
       }
     });
+  } catch (error) {
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// 2. Get Specific String
+app.get("/strings/:string_value", async (req, res) => {
+  try {
+    const { string_value } = req.params;
+    
+    const stringData = stringStore.getString(string_value);
+    
+    if (!stringData) {
+      return res.status(404).json({ error: "String does not exist in the system" });
+    }
+
+    return res.status(200).json(stringData);
   } catch (error) {
     return res.status(500).json({ error: "Internal server error" });
   }
